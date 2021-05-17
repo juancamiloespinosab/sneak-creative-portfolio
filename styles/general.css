@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;600&family=Questrial&display=swap');
+/*
+
+
+*/
+
+/* ------------------------------------------------------- */
+
+/* general */
+
+/* ------------------------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  border-style: solid;
+}
+
+a {
+  text-decoration: none;
+}
+
+:root {
+  /* colors */
+  --primary-color: #FF5773;
+  --secundary-color: #00E1FF;
+  --grey-color: #757c8d;
+  --white-color: white;
+  /* grid */
+  --numberColumns: 0;
+  --widthColumns: 0;
+  --maxWidthContainer: 0;
+}
+
+/* ------------------------------------------------------- */
+
+/* sections */
+
+/* ------------------------------------------------------- */
+
+.app, .main-header, .cover-page, .projects, .footer {
+  margin: auto;
+}
+
+.app {
+  width: 85vw;
+}
+
+.main-header {
+  width: 80%;
+  height: 10vh;
+  /* outline: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cover-page {
+  width: 100%;
+  height: 90vh;
+  /* outline: 1px solid yellow; */
+}
+
+.projects {
+  width: 80%;
+  /* outline: 1px solid blue; */
+}
+
+.footer {
+  width: 30%;
+  height: 20vh;
+}
+
+/* ------------------------------------------------------- */
+
+/* utils */
+
+/* ------------------------------------------------------- */
+
+/* display */
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* background-color */
+
+.bg-primary-color {
+  background-color: var(--primary-color);
+}
+
+.bg-secundary-color {
+  background-color: var(--secundary-color)
+}
+
+.bg-grey-color {
+  background-color: var(--grey-color)
+}
+
+.bg-white-color {
+  background-color: var(--white-color)
+}
+
+/* text-color */
+
+.text-primary-color {
+  color: var(--primary-color);
+}
+
+.text-secundary-color {
+  color: var(--secundary-color)
+}
+
+.text-grey-color {
+  color: var(--grey-color)
+}
+
+.text-white-color {
+  color: var(--white-color)
+}
+
+/* fonts */
+
+.font-monserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.font-questrial {
+  font-family: 'Questrial', sans-serif;
+  letter-spacing: 2px;
+}
+
+.font-size-small {
+  font-size: 10px;
+}
+
+.font-size-medium {
+  font-size: 12px;
+}
+
+.font-size-large {
+  font-size: 20px;
+}
+
+.font-size-extralarge {
+  font-size: 30px;
+}
+
+.font-weight-thin {
+  font-weight: 100;
+}
+
+.font-weight-semibold {
+  font-weight: 600;
+}
+
+/* buttons */
+
+.btn-primary-color {}
+
+.btn-white-color {
+  padding: 10px 20px;
+  background-color: var(--white-color);
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: color .5s;
+}
+
+.btn-white-color:hover {
+  color: var(--secundary-color);
+}

@@ -1,28 +1,41 @@
 class Cards {
   constructor() {
+    this.cardsPerPage;
+    this.cardCounter;
+    this.iteratorLimit;
+
+    this.setCounters();
+
+    this.gridContainers = [];
+    this.initGrid();
+
+  }
+
+  initGrid() {
+    Object.assign(this.gridContainers, grid.gridContainersList)
+
+  }
+
+  setCounters() {
     this.cardsPerPage = 10;
     this.cardCounter = 0;
-
-    this.gridContainers = [
-      document.getElementById('grid-container-left'),
-      document.getElementById('grid-container-center'),
-      document.getElementById('grid-container-right')
-    ];
+    this.iteratorLimit = this.cardsPerPage;
   }
 
   async renderCardsByCategory(category) {
+
     const projects = new Projects();
     const projectsList = await projects.getProjectsByCategory(category)
     const projectsListLength = projectsList.length;
-    let iteratorLimit = this.cardsPerPage;
     let iterator = this.cardCounter;
 
-    for (iterator; iterator < iteratorLimit; iterator++) {
+    for (iterator; iterator < this.iteratorLimit; iterator++) {
       if (iterator < projectsListLength) {
 
         this.creteCard(projectsList, iterator, card => {
           this.getGridContainer(gridContainer => {
             gridContainer.appendChild(card)
+
 
           });
         });
@@ -34,19 +47,21 @@ class Cards {
     if ((projectsListLength - this.cardCounter) > 0) {
       const showMore = document.createElement('div');
       showMore.setAttribute('id', 'show-more');
-      showMore.classList.add('show-more');
+      showMore.style.gridColumn = '1 / ' + (grid.getPropValue('numberColumns') + 1);
+      showMore.classList.add('show-more', 'flex-center');
       showMore.innerHTML = `<button id="show-more-button" class="show-more__button">Show Me More</button>`;
       document.getElementById('grid').appendChild(showMore);
 
       showMore.addEventListener('click', () => {
         showMore.classList.add('show-more--disable')
 
+
         setTimeout(() => {
           const parent = showMore.parentNode;
           parent.removeChild(showMore);
         }, 200);
 
-        iteratorLimit += this.cardsPerPage;
+        this.iteratorLimit += this.cardsPerPage;
         this.renderCardsByCategory(category);
       })
     }
@@ -59,12 +74,12 @@ class Cards {
     card.classList.add('card')
 
     let tmpImage = new Image();
-    tmpImage.classList.add('card__image')
+    tmpImage.classList.add('card__image', 'flex-center')
     tmpImage.src = projectsList[iterator].url;
 
     tmpImage.addEventListener('load', async () => {
       card.innerHTML = `
-        <div class="card__information">
+        <div class="card__information flex-center">
           <div class="card__information-container"
             <h2 class="card__title">${projectsList[iterator].title.toUpperCase()}</h2>
             <hr>
@@ -85,11 +100,17 @@ class Cards {
 
     let gridContainersHeight = [];
 
-    gridContainersHeight = [
-      { id: 0, width: this.gridContainers[0].clientHeight },
-      { id: 1, width: this.gridContainers[1].clientHeight },
-      { id: 2, width: this.gridContainers[2].clientHeight }
-    ];
+    this.gridContainers.forEach((element, index) => {
+      gridContainersHeight.push({
+        id: index, width: element.clientHeight
+      })
+    });
+
+    // gridContainersHeight = [
+    //   { id: 0, width: this.gridContainers[0].clientHeight },
+    //   { id: 1, width: this.gridContainers[1].clientHeight },
+    //   { id: 2, width: this.gridContainers[2].clientHeight }
+    // ];
 
     gridContainersHeight.sort((a, b) => {
       if (a.width > b.width) {

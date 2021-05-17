@@ -5,13 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="icon" type="image/ico" href="assets/icons/favicon.png" sizes="64x64">
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/sections.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link rel="icon" type="image/png" href="assets/icons/favicon.png" sizes="64x64">
     <title>Sneak - Creative Portfolio</title>
 </head>
 
 <body>
-    <div class="app">
+    <div class="app font-monserrat font-weight-semibold">
 
         <!-- Encabezado -->
         <header class="main-header">
@@ -20,53 +23,52 @@
             <img id="mobile-menu" class="mobile-menu" src="assets/icons/menu.png" alt="">
 
             <nav id="main-menu" class="main-menu">
-                <a href="#projects" class="main-menu__item main-menu__item--active">All</a>
-                <a href="#projects" class="main-menu__item">Branding</a>
-                <a href="#projects" class="main-menu__item">Web</a>
-                <a href="#projects" class="main-menu__item">Photography</a>
-                <a href="#projects" class="main-menu__item">App</a>
+                <a href="#projects"
+                    class="main-menu__item main-menu__item--active font-size-medium text-grey-color font-questrial">All</a>
+                <a href="#projects" class="main-menu__item font-size-medium text-grey-color font-questrial">Branding</a>
+                <a href="#projects" class="main-menu__item font-size-medium text-grey-color font-questrial">Web</a>
+                <a href="#projects"
+                    class="main-menu__item font-size-medium text-grey-color font-questrial">Photography</a>
+                <a href="#projects" class="main-menu__item font-size-medium text-grey-color font-questrial">App</a>
                 <button class="main-menu__search"></button>
             </nav>
         </header>
 
         <!-- Portada -->
-        <section class="cover-page">
-            <h1 class="cover-page__title">EXPLORE BEYOND HORIZON</h1>
-            <p class="cover-page__description">Magna mundi referrentur quo, no rebum dignissim qui.
+        <section class="cover-page flex-center bg-primary-color text-white-color">
+            <h1 class="cover-page__title font-size-extralarge">EXPLORE BEYOND HORIZON</h1>
+            <p class="cover-page__description font-size-medium font-questrial font-weight-thin">Magna mundi referrentur
+                quo, no rebum
+                dignissim qui.
                 <br>
                 Per quodsi accusata id, agam labores.
             </p>
-            <a href="#projects" class="cover-page__action">VIEW OUR WORK</a>
+            <a href="#projects" class="cover-page__action btn-white-color font-size-small">VIEW OUR WORK</a>
         </section>
 
         <!-- Cuadricula -->
         <section id="projects" class="projects">
 
-            <aside class="display">
+            <aside class="display flex-center">
                 <button class="display__grid"></button>
                 <button class="display__row"></button>
             </aside>
 
-            <aside id="filter" class="categories">
+            <aside id="filter" class="categories flex-center bg-white-color">
                 <nav class="main-menu main-menu--filters">
-                    <a href="#projects" class="main-menu__item main-menu__item--active">All</a>
-                    <a href="#projects" class="main-menu__item">Branding</a>
-                    <a href="#projects" class="main-menu__item">Web</a>
-                    <a href="#projects" class="main-menu__item">Photography</a>
-                    <a href="#projects" class="main-menu__item">App</a>
+                    <a href="#projects"
+                        class="main-menu__item main-menu__item--active font-size-medium text-grey-color font-questrial">All</a>
+                    <a href="#projects"
+                        class="main-menu__item font-size-medium text-grey-color font-questrial">Branding</a>
+                    <a href="#projects" class="main-menu__item font-size-medium text-grey-color font-questrial">Web</a>
+                    <a href="#projects"
+                        class="main-menu__item font-size-medium text-grey-color font-questrial">Photography</a>
+                    <a href="#projects" class="main-menu__item font-size-medium text-grey-color font-questrial">App</a>
                 </nav>
             </aside>
 
-            <article id="grid" class="grid">
-                <div id="grid-container-left" class="grid-container">
+            <article id="grid" class="grid flex-center">
 
-                </div>
-                <div id="grid-container-center" class="grid-container">
-
-                </div>
-                <div id="grid-container-right" class="grid-container">
-
-                </div>
             </article>
 
 
@@ -74,7 +76,7 @@
 
 
         <!-- Pie de pagina -->
-        <footer class="footer">
+        <footer class="footer flex-center">
             <p class="footer__copy">&copy; 2016 - <span class="text-primary-color">Sneak</span> All Right Reserved</p>
             <section class="footer__social-container">
                 <a class="footer__link" target="_blank" href="https://www.facebook.com/">
@@ -95,6 +97,7 @@
     </div>
 
     <script src="scripts/projects.js"></script>
+    <script src="scripts/grid.js"></script>
     <script src="scripts/cards.js"></script>
     <script src="scripts/menu.js"></script>
     <script src="scripts/filter.js"></script>
