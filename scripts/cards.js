@@ -49,7 +49,7 @@ class Cards {
       showMore.setAttribute('id', 'show-more');
       showMore.style.gridColumn = '1 / ' + (grid.getPropValue('numberColumns') + 1);
       showMore.classList.add('show-more', 'flex-center');
-      showMore.innerHTML = `<button id="show-more-button" class="show-more__button">Show Me More</button>`;
+      showMore.innerHTML = `<button id="show-more-button" class="show-more__button btn-primary-color font-size-medium">Show Me More</button>`;
       document.getElementById('grid').appendChild(showMore);
 
       showMore.addEventListener('click', () => {
@@ -81,9 +81,9 @@ class Cards {
       card.innerHTML = `
         <div class="card__information flex-center">
           <div class="card__information-container"
-            <h2 class="card__title">${projectsList[iterator].title.toUpperCase()}</h2>
+            <h2 class="card__title font-size-medium font-questrial">${projectsList[iterator].title.toUpperCase()}</h2>
             <hr>
-            <h3 class="card__category">${projectsList[iterator].category.charAt(0).toUpperCase() + projectsList[iterator].category.slice(1)}</h3>
+            <h3 class="card__category font-size-small">${projectsList[iterator].category.charAt(0).toUpperCase() + projectsList[iterator].category.slice(1)}</h3>
           </div>
         </div>
         `

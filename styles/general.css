@@ -165,7 +165,19 @@ a {
 
 /* buttons */
 
-.btn-primary-color {}
+.btn-primary-color {
+  border-radius: 0;
+  border: none;
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  cursor: pointer;
+  transition: background-color .5s;
+}
+
+.btn-primary-color:hover {
+  background-color: var(--secundary-color);
+}
 
 .btn-white-color {
   padding: 10px 20px;
