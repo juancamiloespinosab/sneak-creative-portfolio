@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/ico" href="assets/icons/favicon.ico" sizes="64x64">
+    <title>Sneak - Creative Portfolio</title>
+</head>
+
+<body>
+    <div class="app">
+
+        <!-- Encabezado -->
+        <header class="main-header">
+            <img class="logo" src="assets/icons/logo.png" alt="Sneak Creative Portfolio">
+
+            <img id="mobile-menu" class="mobile-menu" src="assets/icons/menu.png" alt="">
+
+            <nav id="main-menu" class="main-menu">
+                <a href="#projects" class="main-menu__item main-menu__item--active">All</a>
+                <a href="#projects" class="main-menu__item">Branding</a>
+                <a href="#projects" class="main-menu__item">Web</a>
+                <a href="#projects" class="main-menu__item">Photography</a>
+                <a href="#projects" class="main-menu__item">App</a>
+                <button class="main-menu__search"></button>
+            </nav>
+        </header>
+
+        <!-- Portada -->
+        <section class="cover-page">
+            <h1 class="cover-page__title">EXPLORE BEYOND HORIZON</h1>
+            <p class="cover-page__description">Magna mundi referrentur quo, no rebum dignissim qui.
+                <br>
+                Per quodsi accusata id, agam labores.
+            </p>
+            <a href="#projects" class="cover-page__action">VIEW OUR WORK</a>
+        </section>
+
+        <!-- Cuadricula -->
+        <section id="projects" class="projects">
+
+            <aside class="display">
+                <button class="display__grid"></button>
+                <button class="display__row"></button>
+            </aside>
+
+            <aside id="filter" class="categories">
+                <nav class="main-menu main-menu--filters">
+                    <a href="#projects" class="main-menu__item main-menu__item--active">All</a>
+                    <a href="#projects" class="main-menu__item">Branding</a>
+                    <a href="#projects" class="main-menu__item">Web</a>
+                    <a href="#projects" class="main-menu__item">Photography</a>
+                    <a href="#projects" class="main-menu__item">App</a>
+                </nav>
+            </aside>
+
+            <article id="grid" class="grid">
+                <div id="grid-container-left" class="grid-container">
+
+                </div>
+                <div id="grid-container-center" class="grid-container">
+
+                </div>
+                <div id="grid-container-right" class="grid-container">
+
+                </div>
+            </article>
+
+
+        </section>
+
+
+        <!-- Pie de pagina -->
+        <footer class="footer">
+
+        </footer>
+    </div>
+
+    <script src="scripts/app.js"></script>
+</body>
+
+</html>
