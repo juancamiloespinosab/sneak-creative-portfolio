@@ -95,4 +95,7 @@
     .card__image {
         width: 100%;
     }
+    .grid__message {
+        margin-top: -100%;
+    }
 }
