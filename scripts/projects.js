@@ -28,6 +28,28 @@ class Projects {
 
   }
 
+  async getProjectsByTitle(title) {
+    const projectsList = [];
+    title = title.toLowerCase();
+
+    const portfolio = await this.getJSON()
+
+    portfolio.portfolio.projects.forEach(element => {
+      if (element.title.toLowerCase().includes(title)) {
+        const project = {
+          id: element.id,
+          title: element.title,
+          category: element.category,
+          url: element.url
+        }
+        projectsList.push(project)
+      }
+    });
+
+    return projectsList
+
+  }
+
   async getJSON() {
     const response = {};
 

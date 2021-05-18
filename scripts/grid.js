@@ -7,6 +7,7 @@ class Grid {
                 { name: 'maxWidthContainer', value: 0, measure: 'px', default: 600 }
             ];
         this.grid = document.getElementById('grid');
+
         this.gridContainersList = [];
 
         this.calculateMaxWidthContainer();
@@ -47,6 +48,10 @@ class Grid {
         }
 
 
+    }
+
+    clearGrid() {
+        this.grid.innerHTML = '';
     }
 
     getPropValue(propName) {

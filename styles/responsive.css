@@ -29,7 +29,7 @@
         width: 100vw;
         height: 100vh;
         grid-template-columns: 50vw;
-        grid-template-rows: repeat(6, 100px);
+        grid-template-rows: repeat(7, 90px);
         justify-content: center;
         align-items: center;
         z-index: 20;
@@ -54,6 +54,13 @@
     }
     .main-menu--filters {
         width: 100%;
+    }
+    .main-menu__search {
+        width: 100%;
+    }
+    .main-menu__search-box {
+        grid-column: 1/2;
+        height: 50px;
     }
     /* ------------------------------------------------------- */
     /* projects */

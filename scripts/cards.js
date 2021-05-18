@@ -4,6 +4,8 @@ class Cards {
     this.cardCounter;
     this.iteratorLimit;
 
+    this.message;
+
     this.setCounters();
 
     this.gridContainers = [];
@@ -23,9 +25,38 @@ class Cards {
   }
 
   async renderCardsByCategory(category) {
-
     const projects = new Projects();
-    const projectsList = await projects.getProjectsByCategory(category)
+    const projectsList = await projects.getProjectsByCategory(category);
+    this.renderCards(projectsList, () => {
+      this.createShowMoreButton(category, 'category', projectsList.length);
+
+    })
+
+  }
+
+  async renderCardsByTitle(title) {
+    const projects = new Projects();
+    const projectsList = await projects.getProjectsByTitle(title)
+    const projectsListLength = projectsList.length;
+
+
+    if (projectsListLength == 0) {
+      this.message = document.createElement('p');
+      this.message.innerHTML = '<p class="grid__message">No hubo resultados para su busqueda</p>';
+      document.getElementById('grid').insertBefore(this.message, this.gridContainers[0]);
+    } else {
+      this.renderCards(projectsList, () => {
+        this.createShowMoreButton(title, 'title', projectsList.length)
+
+      });
+    }
+
+
+
+  }
+
+  renderCards(projectsList, finish) {
+
     const projectsListLength = projectsList.length;
     let iterator = this.cardCounter;
 
@@ -34,16 +65,20 @@ class Cards {
 
         this.creteCard(projectsList, iterator, card => {
           this.getGridContainer(gridContainer => {
-            gridContainer.appendChild(card)
-
-
+            gridContainer.appendChild(card);
           });
         });
 
       }
     }
     this.cardCounter = iterator;
+    finish(true);
 
+
+
+  }
+
+  createShowMoreButton(value, renderBy, projectsListLength) {
     if ((projectsListLength - this.cardCounter) > 0) {
       const showMore = document.createElement('div');
       showMore.setAttribute('id', 'show-more');
@@ -62,11 +97,10 @@ class Cards {
         }, 200);
 
         this.iteratorLimit += this.cardsPerPage;
-        this.renderCardsByCategory(category);
+        renderBy == 'category' ? this.renderCardsByCategory(value) : this.renderCardsByTitle(value);
+
       })
     }
-
-
   }
 
   creteCard(projectsList, iterator, response) {
@@ -133,10 +167,17 @@ class Cards {
 
     const showMore = document.getElementById('show-more')
     if (showMore) {
-      const parent = showMore.parentNode;
-      parent.removeChild(showMore);
+      const showMoreParent = showMore.parentNode;
+      showMoreParent.removeChild(showMore);
 
     }
+
+    if (this.message) {
+      const messageMoreParent = this.message.parentNode;
+      messageMoreParent.removeChild(this.message);
+    }
+
+
   }
 
 }
