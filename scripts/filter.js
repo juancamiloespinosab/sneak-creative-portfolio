@@ -2,6 +2,7 @@ class Filter {
   constructor(filterId) {
     this.searchState = 'closed';
     this.searchBox = document.getElementById('main-menu__search-box');
+    this.search;
 
     this.filters = document.getElementById(filterId);
     this.filters.addEventListener('click', e => {
@@ -19,15 +20,21 @@ class Filter {
       }
 
       if (e.target.classList.contains('main-menu__search')) {
+        this.search = e.target;
+
         if (this.searchState == 'closed') {
+          this.search.classList.add('main-menu__search--active');
           this.searchBox.classList.add('main-menu__search-box--active');
           this.searchState = 'open';
-          e.target.setAttribute('href', '#');
+          this.search.setAttribute('href', '#');
         } else {
-          e.target.setAttribute('href', '#projects');
+          this.search.setAttribute('href', '#projects');
           this.searchBox.classList.remove('main-menu__search-box--active');
+          this.search.classList.remove('main-menu__search--active');
           this.searchState = 'closed';
+          this.searchBox.blur();
           menu.closeMenu();
+
 
           this.removeItemActive();
           this.addItemActive('All');

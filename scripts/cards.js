@@ -174,7 +174,10 @@ class Cards {
 
     if (this.message) {
       const messageMoreParent = this.message.parentNode;
-      messageMoreParent.removeChild(this.message);
+      if (messageMoreParent) {
+        messageMoreParent.removeChild(this.message);
+
+      }
     }
 
 

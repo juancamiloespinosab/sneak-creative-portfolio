@@ -58,6 +58,9 @@
     .main-menu__search {
         width: 100%;
     }
+    .main-menu__search--active {
+        grid-column: 2/3;
+    }
     .main-menu__search-box {
         grid-column: 1/2;
         height: 50px;
