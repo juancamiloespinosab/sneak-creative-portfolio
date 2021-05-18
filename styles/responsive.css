@@ -43,7 +43,7 @@
         justify-content: start;
     }
     #main-menu.main-menu--search-active .main-menu__item {
-        opacity: 0;
+        display: none;
     }
     #main-menu .main-menu__item {
         padding: 30px;

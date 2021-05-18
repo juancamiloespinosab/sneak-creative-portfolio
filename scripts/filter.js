@@ -30,12 +30,12 @@ class Filter {
           this.searchState = 'open';
           this.search.setAttribute('href', '#');
         } else {
+          this.searchBox.blur();
           this.search.setAttribute('href', '#projects');
           this.searchBox.classList.remove('main-menu__search-box--active');
           this.search.classList.remove('main-menu__search--active');
           this.mainMenu.classList.remove('main-menu--search-active');
           this.searchState = 'closed';
-          this.searchBox.blur();
           menu.closeMenu();
 
 
