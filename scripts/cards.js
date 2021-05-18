@@ -42,7 +42,7 @@ class Cards {
 
     if (projectsListLength == 0) {
       this.message = document.createElement('p');
-      this.message.innerHTML = '<p class="grid__message">No hubo resultados para su busqueda</p>';
+      this.message.innerHTML = '<p class="grid__message">There were no results for your search</p>';
       document.getElementById('grid').insertBefore(this.message, this.gridContainers[0]);
     } else {
       this.renderCards(projectsList, () => {
