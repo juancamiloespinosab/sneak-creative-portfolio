@@ -42,7 +42,8 @@ class Cards {
 
     if (projectsListLength == 0) {
       this.message = document.createElement('p');
-      this.message.innerHTML = '<p class="grid__message">There were no results for your search</p>';
+      this.message.classList.add('grid__message')
+      this.message.innerHTML = 'There were no results for your search';
       document.getElementById('grid').insertBefore(this.message, this.gridContainers[0]);
     } else {
       this.renderCards(projectsList, () => {
@@ -63,7 +64,7 @@ class Cards {
     for (iterator; iterator < this.iteratorLimit; iterator++) {
       if (iterator < projectsListLength) {
 
-        this.creteCard(projectsList, iterator, card => {
+        this.createCard(projectsList, iterator, card => {
           this.getGridContainer(gridContainer => {
             gridContainer.appendChild(card);
           });
@@ -103,7 +104,7 @@ class Cards {
     }
   }
 
-  creteCard(projectsList, iterator, response) {
+  createCard(projectsList, iterator, response) {
     const card = document.createElement('div')
     card.classList.add('card')
 
